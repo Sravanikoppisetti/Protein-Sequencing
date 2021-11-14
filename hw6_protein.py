@@ -151,6 +151,7 @@ def aminoAcidDictionary(aaList):
             aminoAcid[i]=1
         else:
             aminoAcid[i]+=1
+    #print(aminoAcid)
     return aminoAcid
 
 
@@ -165,22 +166,18 @@ def findAminoAcidDifferences(proteinList1, proteinList2, cutoff):
     elephant_lst=combineProteins(proteinList2)
     human_dict=aminoAcidDictionary(human_list)
     elephant_dict=aminoAcidDictionary(elephant_lst)
-
     AminoAcid=[]
     freq1={}
     freq2={}
     freq_diff=[]
-
     for i in human_dict:
         freq1[i]=human_dict[i]/len(human_list)
-        if i not in AminoAcid and i!='Start' and i!='Stop':
+        if i!='Start' and i!='Stop':
             AminoAcid.append(i)
-
     for j in elephant_lst:
         freq2[j]=elephant_dict[j]/len(elephant_lst)
-        if j not in AminoAcid and j!='Start' and j!='Stop':
+        if j not in AminoAcid and  j!='Start' and j!='Stop':
             AminoAcid.append(j) 
-
     for k in AminoAcid:
         frequency1=0
         frequency2=0
@@ -358,16 +355,18 @@ if __name__ == "__main__":
     
     # test.testCommonProteins()
     #test.testCombineProteins()
-    # test.testAminoAcidDictionary()
+    #test.testAminoAcidDictionary()
+    #test.testFindAminoAcidDifferences()
     
     
 
     
 
     ## Uncomment these for Week 3 ##
-    
+   
     print("\n" + "#"*15 + " WEEK 3 TESTS " +  "#" * 16 + "\n")
     test.week3Tests()
     print("\n" + "#"*15 + " WEEK 3 OUTPUT " + "#" * 15 + "\n")
     runFullProgram()
+    
     
