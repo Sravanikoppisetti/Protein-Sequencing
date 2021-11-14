@@ -282,8 +282,16 @@ Returns: None
 '''
 def createChart(xLabels, freqList1, label1, freqList2, label2, edgeList=None):
     import matplotlib.pyplot as plt
+    import numpy as np
+    w=0.4
+    xvalues=np.arange(len(xLabels))
+    plt.bar(xvalues,freqList1,width=-w,align='edge',label=label1,edgecolor=edgeList)
+    plt.bar(xvalues,freqList2,width=w,align='edge',label=label2,edgecolor=edgeList)
+    plt.xticks(ticks=list(range(len(xLabels))),labels=xLabels,rotation="horizontal")
+    plt.legend()
+    plt.title("Comparision of Frequencies")
+    plt.show()
     return
-
 
 '''
 makeEdgeList(labels, biggestDiffs)
