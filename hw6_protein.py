@@ -259,7 +259,8 @@ if __name__ == "__main__":
     runWeek2()
     """
     # test.testCommonProteins()
-    test.testCombineProteins()
+    #test.testCombineProteins()
+    test.testAminoAcidDictionary()
 
     ## Uncomment these for Week 3 ##
     """
