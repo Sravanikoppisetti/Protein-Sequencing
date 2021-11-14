@@ -201,6 +201,7 @@ Parameters: 2D list of strs ; 2D list of values
 Returns: None
 '''
 def displayTextResults(commonalities, differences):
+    print("The following proteins occurred in both DNA Sequences:")
     for i in commonalities:
         common_proteins=""
         lst=i[1:(len(i)-1)]
@@ -210,21 +211,21 @@ def displayTextResults(commonalities, differences):
             count+=1
             if count!=len(lst):
                 common_proteins+="-"
-        if len(common_proteins)!=0:
-            print("The following proteins occurred in both DNA Sequences:")
+        if len(common_proteins)!=0:    
             print(common_proteins)
+
+    print("The following amino acids occurred at very different rates in the two DNA sequences:")
     for i in differences:
         a=i[0]
         freq1=round(i[1]*100,2)
         freq2=round(i[2]*100,2)
-        print("The following amino acids occurred at very different rates in the two DNA sequences:")
         print(str(a)+" "+str(freq1)+" % in Seq1"+","+str(freq2)+"% in Seq2")
     return
 
 
 def runWeek2():
-    humanProteins = synthesizeProteins("data/human_p53.txt", "data/codon_table.json")
-    elephantProteins = synthesizeProteins("data/elephant_p53.txt", "data/codon_table.json")
+    humanProteins = synthesizeProteins("human_p53.txt", "data/codon_table.json")
+    elephantProteins = synthesizeProteins("elephant_p53.txt", "data/codon_table.json")
 
     commonalities = commonProteins(humanProteins, elephantProteins)
     differences = findAminoAcidDifferences(humanProteins, elephantProteins, 0.005)
@@ -300,17 +301,18 @@ if __name__ == "__main__":
     
 
     ## Uncomment these for Week 2 ##
-    """
+    
     print("\n" + "#"*15 + " WEEK 2 TESTS " +  "#" * 16 + "\n")
     test.week2Tests()
     print("\n" + "#"*15 + " WEEK 2 OUTPUT " + "#" * 15 + "\n")
     runWeek2()
-    """
+    
     
     # test.testCommonProteins()
     #test.testCombineProteins()
     # test.testAminoAcidDictionary()
-    test.testFindAminoAcidDifferences()
+    
+
     
 
     ## Uncomment these for Week 3 ##
