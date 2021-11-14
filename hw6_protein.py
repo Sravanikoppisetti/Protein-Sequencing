@@ -86,15 +86,15 @@ def synthesizeProteins(dnaFilename, codonFilename):
     codon_data=makeCodonDictionary(codonFilename)
     count=0
     synthesizeProteins=[]
-    total=0
-    while total<len(dna_data):
-        if dna_data[i:i+3]=="ATG":
-            rnd_data=dnaToRna(dna_data,i)
+    length=0
+    while length<len(dna_data):
+        if dna_data[length:length+3]=="ATG":
+            rnd_data=dnaToRna(dna_data,length)
             protein=generateProtein(rnd_data,codon_data)
             synthesizeProteins.append(protein)
-            total=total+3*len(rnd_data)
+            length=length+3*len(rnd_data)
         else:
-            i=i+1
+            length=length+1
             count+=1
     return synthesizeProteins
 
