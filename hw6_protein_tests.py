@@ -60,14 +60,14 @@ def testGenerateProtein():
 def testSynthesizeProteins():
     print("Testing synthesizeProteins()...", end="")
     # First, test on the provided test data
-    proteins1 = synthesizeProteins("data/test_dna.txt", "data/codon_table.json")
+    proteins1 = synthesizeProteins("test_dna.txt", "codon_table.json")
     # The function should say there are 31 total bases,
     # 4 unused bases, and 2 synthesized proteins
     assert(proteins1 == [ ['Start', 'Asp', 'Gly', 'Leu', 'Stop'], 
                           ['Start', 'Pro', 'Phe', 'Stop']])
 
     # Now test on the actual data
-    proteins2 = synthesizeProteins("data/human_p53.txt", "data/codon_table.json")
+    proteins2 = synthesizeProteins("human_p53.txt", "codon_table.json")
     # The function should say there are 19149 total bases,
     # 10560 unused bases, and 119 synthesized proteins
     assert(len(proteins2) == 119)
