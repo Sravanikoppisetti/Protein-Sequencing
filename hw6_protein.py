@@ -300,7 +300,16 @@ Parameters: list of strs ; 2D list of values
 Returns: list of strs
 '''
 def makeEdgeList(labels, biggestDiffs):
-    return
+    edgelst=[]
+    words=[]
+    for i in range(len(biggestDiffs)):
+        words.append(biggestDiffs[i][0])
+    for i in range(len(labels)):
+        if labels[i] in words:
+            edgelst.append("black")
+        else:
+            edgelst.append("white")
+    return edgelst
 
 
 '''
