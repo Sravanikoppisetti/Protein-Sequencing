@@ -19,9 +19,10 @@ Returns: str
 def readFile(filename):
     file=open(filename)
     data=file.read().splitlines()
-    s="".join(data)
-    print(s)
-    return s
+    data="".join(data)
+    print(data)
+    return data
+
 
 
 '''

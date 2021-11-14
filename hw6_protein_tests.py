@@ -9,7 +9,7 @@ def testReadFile():
     assert(text1 == "ATGGATGGACTCTAACGCAATGCCCTTTTAG")
 
     # Now check the human DNA file you loaded
-    text2 = readFile("data/human_p53.txt")
+    text2 = readFile("human_p53.txt")
     assert(text2[:10] == "GATGGGATTG") # the whole sequence is too long to check here!
     assert(len(text2) == 19149)
     # If the length is not correct, check that you're
