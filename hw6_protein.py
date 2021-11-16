@@ -241,7 +241,19 @@ Parameters: 2D list of strs ; 2D list of strs
 Returns: list of strs
 '''
 def makeAminoAcidLabels(proteinList1, proteinList2):
-    return
+    genes=[]
+    human_lst=combineProteins(proteinList1)
+    elephant_lst=combineProteins(proteinList2)
+    human_dict=aminoAcidDictionary(human_lst)
+    elephant_dict=aminoAcidDictionary(elephant_lst)
+    for i in human_dict:
+        if i not in genes:
+            genes.append(i)
+    for j in elephant_dict:
+        if j not in genes:
+            genes.append(j)
+    genes.sort()
+    return genes
 
 
 '''
@@ -251,7 +263,7 @@ Parameters: list of strs ; 2D list of strs
 Returns: list of floats
 '''
 def setupChartData(labels, proteinList):
-    return
+    return 
 
 
 '''
@@ -301,24 +313,26 @@ if __name__ == "__main__":
     
 
     ## Uncomment these for Week 2 ##
-    
+    """
     print("\n" + "#"*15 + " WEEK 2 TESTS " +  "#" * 16 + "\n")
     test.week2Tests()
     print("\n" + "#"*15 + " WEEK 2 OUTPUT " + "#" * 15 + "\n")
     runWeek2()
+    """
     
     
     # test.testCommonProteins()
     #test.testCombineProteins()
     # test.testAminoAcidDictionary()
     
+    
 
     
 
     ## Uncomment these for Week 3 ##
-    """
+    
     print("\n" + "#"*15 + " WEEK 3 TESTS " +  "#" * 16 + "\n")
     test.week3Tests()
     print("\n" + "#"*15 + " WEEK 3 OUTPUT " + "#" * 15 + "\n")
     runFullProgram()
-    """
+    
