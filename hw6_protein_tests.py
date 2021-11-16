@@ -67,7 +67,7 @@ def testSynthesizeProteins():
                           ['Start', 'Pro', 'Phe', 'Stop']])
 
     # Now test on the actual data
-    proteins2 = synthesizeProteins("data/human_p53.txt", "data/codon_table.json")
+    proteins2 = synthesizeProteins("human_p53.txt", "data/codon_table.json")
     # The function should say there are 19149 total bases,
     # 10560 unused bases, and 119 synthesized proteins
     assert(len(proteins2) == 119)
